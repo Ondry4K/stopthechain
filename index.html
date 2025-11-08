@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop the Chain - Break the Cycle of Hate</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .chat-bubble {
+            animation: slideIn 0.3s ease-out;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        [dir="rtl"] {
+            direction: rtl;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    <div class="max-w-4xl mx-auto px-6 py-16">
+        <!-- Language Selector -->
+        <div class="flex justify-end mb-4">
+            <div class="relative">
+                <select id="languageSelector" class="appearance-none bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 pr-8 text-sm font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-pointer">
+                    <option value="en">🇬🇧 English</option>
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="fr">🇫🇷 Français</option>
+                    <option value="ru">🇷🇺 Русский</option>
+                    <option value="zh">🇨🇳 中文</option>
+                    <option value="ar">🇸🇦 العربية</option>
+                    <option value="cs">🇨🇿 Čeština</option>
+                </select>
+                <i class="fas fa-chevron-down absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 pointer-events-none"></i>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header class="text-center mb-16">
+            <div class="mb-6">
+                <i class="fas fa-link-slash text-6xl gradient-text"></i>
+            </div>
+            <h1 class="text-5xl font-bold mb-4" data-i18n="title">Stop the Chain</h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-i18n="subtitle">
+                Break the cycle of hate. Choose kindness over confrontation.
+            </p>
+        </header>
+
+        <!-- Main Message -->
+        <section class="mb-16 bg-gray-50 rounded-lg p-8 reveal">
+            <h2 class="text-3xl font-bold mb-6" data-i18n="problemTitle">The Problem</h2>
+            <p class="text-lg text-gray-700 mb-4" data-i18n="problemText">
+                When someone spreads hate for attention or amusement, engaging with them only fuels the fire. 
+                Every angry response gives them exactly what they want.
+            </p>
+            <div class="bg-white border-l-4 border-purple-500 p-6 my-6">
+                <p class="text-lg font-semibold text-gray-800 mb-2">
+                    <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                    <span data-i18n="psychologyLabel">Psychology shows us a better way:</span>
+                </p>
+                <p class="text-gray-700" data-i18n="psychologyText">
+                    The best defense against hatred is kindness. It disrupts the expected pattern, 
+                    prompting self-reflection instead of escalation.
+                </p>
+            </div>
+        </section>
+
+        <!-- The Solution -->
+        <section class="mb-16 reveal">
+            <h2 class="text-3xl font-bold mb-6" data-i18n="solutionTitle">The Solution</h2>
+            <div class="space-y-4">
+                <div class="bg-green-50 border border-green-200 rounded-lg p-6">
+                    <h3 class="font-semibold text-lg mb-2 text-green-800">
+                        <i class="fas fa-check-circle mr-2"></i>
+                        <span data-i18n="step1Title">Step 1: Respond with genuine kindness</span>
+                    </h3>
+                    <p class="text-gray-700 mb-3" data-i18n="step1Intro">Use one of these responses:</p>
+                    <ul class="space-y-2 ml-6">
+                        <li class="text-gray-700"><i class="fas fa-quote-left text-gray-400 mr-2"></i><span data-i18n="response1">"I hope you have a nice rest of your day."</span></li>
+                        <li class="text-gray-700"><i class="fas fa-quote-left text-gray-400 mr-2"></i><span data-i18n="response2">"I hope you achieve all your goals in life."</span></li>
+                        <li class="text-gray-700"><i class="fas fa-quote-left text-gray-400 mr-2"></i><span data-i18n="response3">"Wishing you well."</span></li>
+                    </ul>
+                </div>
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                    <h3 class="font-semibold text-lg mb-2 text-blue-800">
+                        <i class="fas fa-door-open mr-2"></i>
+                        <span data-i18n="step2Title">Step 2: Walk away</span>
+                    </h3>
+                    <p class="text-gray-700">
+                        <span data-i18n="step2Text1">If they continue or mock your kindness,</span> <strong data-i18n="step2Text2">do not engage further</strong>. 
+                        <span data-i18n="step2Text3">You've already won by refusing to play their game.</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chat Examples -->
+        <section class="mb-16 reveal">
+            <h2 class="text-3xl font-bold mb-8" data-i18n="examplesTitle">Real Examples</h2>
+            
+            <!-- Example 1 -->
+            <div class="mb-12 bg-gray-50 rounded-lg p-6 reveal">
+                <h3 class="font-semibold text-lg mb-4 text-gray-800">
+                    <i class="fas fa-comment-dots mr-2"></i>
+                    <span data-i18n="example1Title">Example 1: Gaming Community</span>
+                </h3>
+                <div class="space-y-3">
+                    <div class="chat-bubble">
+                        <div class="bg-red-100 border-l-4 border-red-500 rounded p-4">
+                            <p class="font-semibold text-sm text-gray-600 mb-1">@TrollKing47</p>
+                            <p class="text-gray-800" data-i18n="example1Msg1">This game is trash and anyone who likes it is an idiot with no taste lol</p>
+                        </div>
+                    </div>
+                    <div class="chat-bubble">
+                        <div class="bg-green-100 border-l-4 border-green-500 rounded p-4 ml-8">
+                            <p class="font-semibold text-sm text-gray-600 mb-1">@MaturityWins</p>
+                            <p class="text-gray-800" data-i18n="example1Msg2">I hope you have a nice rest of your day.</p>
+                        </div>
+                    </div>
+                    <div class="chat-bubble">
+                        <div class="bg-red-100 border-l-4 border-red-500 rounded p-4">
+                            <p class="font-semibold text-sm text-gray-600 mb-1">@TrollKing47</p>
+                            <p class="text-gray-800" data-i18n="example1Msg3">LOL what kind of response is that? Are you even trying?</p>
+                        </div>
+                    </div>
+                    <div class="chat-bubble">
+                        <div class="bg-gray-100 border-l-4 border-gray-400 rounded p-4 ml-8">
+                            <p class="text-gray-600 italic">
+                                <i class="fas fa-ban mr-2"></i>
+                                <span data-i18n="example1Msg4">@MaturityWins did not respond further</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example 2 -->
+            <div class="mb-12 bg-gray-50 rounded-lg p-6 reveal">
+                <h3 class="font-semibold text-lg mb-4 text-gray-800">
+                    <i class="fas fa-comment-dots mr-2"></i>
+                    <span data-i18n="example2Title">Example 2: Social Media</span>
+                </h3>
+                <div class="space-y-3">
+                    <div class="chat-bubble">
+                        <div class="bg-red-100 border-l-4 border-red-500 rounded p-4">
+                            <p class="font-semibold text-sm text-gray-600 mb-1">@EdgeLord2024</p>
+                            <p class="text-gray-800" data-i18n="example2Msg1">Imagine being this cringe. Your whole account is embarrassing 💀</p>
+                        </div>
+                    </div>
+                    <div class="chat-bubble">
+                        <div class="bg-green-100 border-l-4 border-green-500 rounded p-4 ml-8">
+                            <p class="font-semibold text-sm text-gray-600 mb-1">@KindnessMatters</p>
+                            <p class="text-gray-800" data-i18n="example2Msg2">I hope you achieve all your goals in life. Take care!</p>
+                        </div>
+                    </div>
+                    <div class="chat-bubble">
+                        <div class="bg-gray-100 border-l-4 border-gray-400 rounded p-4">
+                            <p class="text-gray-600 italic">
+                                <i class="fas fa-heart mr-2"></i>
+                                <span data-i18n="example2Msg3">@EdgeLord2024 actually paused to reflect and didn't respond</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example 3 -->
+            <div class="mb-12 bg-gray-50 rounded-lg p-6 reveal">
+                <h3 class="font-semibold text-lg mb-4 text-gray-800">
+                    <i class="fas fa-comment-dots mr-2"></i>
+                    <span data-i18n="example3Title">Example 3: Product Review Section</span>
+                </h3>
+                <div class="space-y-3">
+                    <div class="chat-bubble">
+                        <div class="bg-red-100 border-l-4 border-red-500 rounded p-4">
+                            <p class="font-semibold text-sm text-gray-600 mb-1">@CynicalConsumer</p>
+                            <p class="text-gray-800" data-i18n="example3Msg1">Anyone who bought this is a corporate sheep. Wake up people!</p>
+                        </div>
+                    </div>
+                    <div class="chat-bubble">
+                        <div class="bg-green-100 border-l-4 border-green-500 rounded p-4 ml-8">
+                            <p class="font-semibold text-sm text-gray-600 mb-1">@PositivePatty</p>
+                            <p class="text-gray-800" data-i18n="example3Msg2">Wishing you well on your journey.</p>
+                        </div>
+                    </div>
+                    <div class="chat-bubble">
+                        <div class="bg-red-100 border-l-4 border-red-500 rounded p-4">
+                            <p class="font-semibold text-sm text-gray-600 mb-1">@CynicalConsumer</p>
+                            <p class="text-gray-800" data-i18n="example3Msg3">That's the most passive aggressive thing I've ever read haha</p>
+                        </div>
+                    </div>
+                    <div class="chat-bubble">
+                        <div class="bg-gray-100 border-l-4 border-gray-400 rounded p-4 ml-8">
+                            <p class="text-gray-600 italic">
+                                <i class="fas fa-ban mr-2"></i>
+                                <span data-i18n="example3Msg4">@PositivePatty left the conversation</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why This Works -->
+        <section class="mb-16 bg-purple-50 rounded-lg p-8 reveal">
+            <h2 class="text-3xl font-bold mb-6">
+                <i class="fas fa-brain mr-2 text-purple-600"></i>
+                <span data-i18n="whyWorksTitle">Why This Works</span>
+            </h2>
+            <div class="space-y-4 text-gray-700">
+                <div class="flex items-start">
+                    <div class="bg-purple-200 rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
+                        <span class="font-bold text-purple-800">1</span>
+                    </div>
+                    <p>
+                        <strong data-i18n="reason1Label">Disrupts the pattern:</strong> <span data-i18n="reason1Text">Trolls expect anger or defensiveness. Kindness breaks their script.</span>
+                    </p>
+                </div>
+                <div class="flex items-start">
+                    <div class="bg-purple-200 rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
+                        <span class="font-bold text-purple-800">2</span>
+                    </div>
+                    <p>
+                        <strong data-i18n="reason2Label">Triggers self-awareness:</strong> <span data-i18n="reason2Text">Your genuine goodwill can make them see themselves from outside their bubble.</span>
+                    </p>
+                </div>
+                <div class="flex items-start">
+                    <div class="bg-purple-200 rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
+                        <span class="font-bold text-purple-800">3</span>
+                    </div>
+                    <p>
+                        <strong data-i18n="reason3Label">Protects your peace:</strong> <span data-i18n="reason3Text">You refuse to absorb their negativity or waste energy on conflict.</span>
+                    </p>
+                </div>
+                <div class="flex items-start">
+                    <div class="bg-purple-200 rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
+                        <span class="font-bold text-purple-800">4</span>
+                    </div>
+                    <p>
+                        <strong data-i18n="reason4Label">Sets an example:</strong> <span data-i18n="reason4Text">Others watching learn there's a better way to handle toxicity.</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="text-center mb-16 reveal">
+            <div class="bg-black text-white rounded-lg p-10">
+                <h2 class="text-3xl font-bold mb-4" data-i18n="ctaTitle">Join the Movement</h2>
+                <p class="text-lg mb-6 text-gray-300" data-i18n="ctaText1">
+                    Next time you encounter hate online, remember:
+                </p>
+                <p class="text-2xl font-semibold mb-8" data-i18n="ctaText2">
+                    Don't sink to their level. Stop the chain.
+                </p>
+                <div class="inline-block bg-white text-black px-8 py-3 rounded-lg font-semibold">
+                    <i class="fas fa-heart mr-2 text-red-500"></i>
+                    <span data-i18n="ctaButton">Choose Kindness</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center text-gray-500 text-sm">
+            <div class="mb-6 pb-6 border-b border-gray-200">
+                <p class="text-gray-600 mb-2" data-i18n="footerNote">
+                    That said, if you see this site's URL as someone's status/bio, be prepared to be ignored if you start spreading hatred.
+                </p>
+                <p class="text-gray-500">
+                    <span data-i18n="footerMade">Made with</span> <i class="fas fa-heart text-red-400"></i> <span data-i18n="footerLocation">on Earth</span>
+                </p>
+            </div>
+            <p class="mb-2">
+                <i class="fas fa-link-slash mr-2"></i>
+                <span data-i18n="footerTitle">Stop the Chain</span>
+            </p>
+            <p data-i18n="footerTagline">Breaking cycles of negativity, one kind response at a time.</p>
+        </footer>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                title: "Stop the Chain",
+                subtitle: "Break the cycle of hate. Choose kindness over confrontation.",
+                problemTitle: "The Problem",
+                problemText: "When someone spreads hate for attention or amusement, engaging with them only fuels the fire. Every angry response gives them exactly what they want.",
+                psychologyLabel: "Psychology shows us a better way:",
+                psychologyText: "The best defense against hatred is kindness. It disrupts the expected pattern, prompting self-reflection instead of escalation.",
+                solutionTitle: "The Solution",
+                step1Title: "Step 1: Respond with genuine kindness",
+                step1Intro: "Use one of these responses:",
+                response1: '"I hope you have a nice rest of your day."',
+                response2: '"I hope you achieve all your goals in life."',
+                response3: '"Wishing you well."',
+                step2Title: "Step 2: Walk away",
+                step2Text1: "If they continue or mock your kindness,",
+                step2Text2: "do not engage further",
+                step2Text3: "You've already won by refusing to play their game.",
+                examplesTitle: "Real Examples",
+                example1Title: "Example 1: Gaming Community",
+                example1Msg1: "This game is trash and anyone who likes it is an idiot with no taste lol",
+                example1Msg2: "I hope you have a nice rest of your day.",
+                example1Msg3: "LOL what kind of response is that? Are you even trying?",
+                example1Msg4: "@MaturityWins did not respond further",
+                example2Title: "Example 2: Social Media",
+                example2Msg1: "Imagine being this cringe. Your whole account is embarrassing 💀",
+                example2Msg2: "I hope you achieve all your goals in life. Take care!",
+                example2Msg3: "@EdgeLord2024 actually paused to reflect and didn't respond",
+                example3Title: "Example 3: Product Review Section",
+                example3Msg1: "Anyone who bought this is a corporate sheep. Wake up people!",
+                example3Msg2: "Wishing you well on your journey.",
+                example3Msg3: "That's the most passive aggressive thing I've ever read haha",
+                example3Msg4: "@PositivePatty left the conversation",
+                whyWorksTitle: "Why This Works",
+                reason1Label: "Disrupts the pattern:",
+                reason1Text: "Trolls expect anger or defensiveness. Kindness breaks their script.",
+                reason2Label: "Triggers self-awareness:",
+                reason2Text: "Your genuine goodwill can make them see themselves from outside their bubble.",
+                reason3Label: "Protects your peace:",
+                reason3Text: "You refuse to absorb their negativity or waste energy on conflict.",
+                reason4Label: "Sets an example:",
+                reason4Text: "Others watching learn there's a better way to handle toxicity.",
+                ctaTitle: "Join the Movement",
+                ctaText1: "Next time you encounter hate online, remember:",
+                ctaText2: "Don't sink to their level. Stop the chain.",
+                ctaButton: "Choose Kindness",
+                footerNote: "That said, if you see this site's URL as someone's status/bio, be prepared to be ignored if you start spreading hatred.",
+                footerMade: "Made with",
+                footerLocation: "on Earth",
+                footerTitle: "Stop the Chain",
+                footerTagline: "Breaking cycles of negativity, one kind response at a time."
+            },
+            es: {
+                title: "Detén la Cadena",
+                subtitle: "Rompe el ciclo de odio. Elige la amabilidad sobre la confrontación.",
+                problemTitle: "El Problema",
+                problemText: "Cuando alguien difunde odio por atención o diversión, interactuar con ellos solo alimenta el fuego. Cada respuesta enojada les da exactamente lo que quieren.",
+                psychologyLabel: "La psicología nos muestra un mejor camino:",
+                psychologyText: "La mejor defensa contra el odio es la amabilidad. Interrumpe el patrón esperado, provocando autorreflexión en lugar de escalada.",
+                solutionTitle: "La Solución",
+                step1Title: "Paso 1: Responde con amabilidad genuina",
+                step1Intro: "Usa una de estas respuestas:",
+                response1: '"Espero que tengas un buen resto del día."',
+                response2: '"Espero que logres todas tus metas en la vida."',
+                response3: '"Te deseo lo mejor."',
+                step2Title: "Paso 2: Aléjate",
+                step2Text1: "Si continúan o se burlan de tu amabilidad,",
+                step2Text2: "no sigas interactuando",
+                step2Text3: "Ya has ganado al negarte a jugar su juego.",
+                examplesTitle: "Ejemplos Reales",
+                example1Title: "Ejemplo 1: Comunidad de Videojuegos",
+                example1Msg1: "Este juego es basura y cualquiera que lo disfrute es un idiota sin gusto jaja",
+                example1Msg2: "Espero que tengas un buen resto del día.",
+                example1Msg3: "¿LOL qué tipo de respuesta es esa? ¿Ni siquiera lo intentas?",
+                example1Msg4: "@MaturityWins no respondió más",
+                example2Title: "Ejemplo 2: Redes Sociales",
+                example2Msg1: "Imagina ser tan vergonzoso. Toda tu cuenta es embarazosa 💀",
+                example2Msg2: "Espero que logres todas tus metas en la vida. ¡Cuídate!",
+                example2Msg3: "@EdgeLord2024 en realidad hizo una pausa para reflexionar y no respondió",
+                example3Title: "Ejemplo 3: Sección de Reseñas de Productos",
+                example3Msg1: "Cualquiera que compró esto es una oveja corporativa. ¡Despierten gente!",
+                example3Msg2: "Te deseo lo mejor en tu viaje.",
+                example3Msg3: "Eso es lo más pasivo-agresivo que he leído jaja",
+                example3Msg4: "@PositivePatty abandonó la conversación",
+                whyWorksTitle: "Por Qué Funciona",
+                reason1Label: "Interrumpe el patrón:",
+                reason1Text: "Los trolls esperan ira o actitud defensiva. La amabilidad rompe su guion.",
+                reason2Label: "Desencadena autoconciencia:",
+                reason2Text: "Tu buena voluntad genuina puede hacerles verse a sí mismos desde fuera de su burbuja.",
+                reason3Label: "Protege tu paz:",
+                reason3Text: "Te niegas a absorber su negatividad o desperdiciar energía en conflictos.",
+                reason4Label: "Da ejemplo:",
+                reason4Text: "Otros que observan aprenden que hay una mejor manera de manejar la toxicidad.",
+                ctaTitle: "Únete al Movimiento",
+                ctaText1: "La próxima vez que encuentres odio en línea, recuerda:",
+                ctaText2: "Don't sink to their level. Stop the chain.",
+                ctaButton: "Choose Kindness",
+                footerNote: "Dicho esto, si ves la URL de este sitio en el estado/biografía de alguien, prepárate para ser ignorado si comienzas a difundir odio.",
+                footerMade: "Hecho con",
+                footerLocation: "en la Tierra",
+                footerTitle: "Detén la Cadena",
+                footerTagline: "Rompiendo ciclos de negatividad, una respuesta amable a la vez."
+            },
+            fr: {
+                title: "Arrêtez la Chaîne",
+                subtitle: "Brisez le cycle de haine. Choisissez la gentillesse plutôt que la confrontation.",
+                problemTitle: "Le Problème",
+                problemText: "Quand quelqu'un répand la haine pour attirer l'attention ou s'amuser, s'engager avec eux ne fait qu'alimenter le feu. Chaque réponse colérique leur donne exactement ce qu'ils veulent.",
+                psychologyLabel: "La psychologie nous montre une meilleure voie:",
+                psychologyText: "La meilleure défense contre la haine est la gentillesse. Elle perturbe le schéma attendu, suscitant l'auto-réflexion plutôt que l'escalade.",
+                solutionTitle: "La Solution",
+                step1Title: "Étape 1: Répondre avec une gentillesse sincère",
+                step1Intro: "Utilisez l'une de ces réponses:",
+                response1: '"J\'espère que vous passerez une bonne journée."',
+                response2: '"J\'espère que vous atteindrez tous vos objectifs dans la vie."',
+                response3: '"Je vous souhaite du bien."',
+                step2Title: "Étape 2: S\'éloigner",
+                step2Text1: "S'ils continuent ou se moquent de votre gentillesse,",
+                step2Text2: "n\'interagissez plus",
+                step2Text3: "Vous avez déjà gagné en refusant de jouer leur jeu.",
+                examplesTitle: "Exemples Réels",
+                example1Title: "Exemple 1: Communauté de Jeux",
+                example1Msg1: "Ce jeu est nul et quiconque l'aime est un idiot sans goût lol",
+                example1Msg2: "J\'espère que vous passerez une bonne journée.",
+                example1Msg3: "LOL quel genre de réponse est-ce? Vous essayez même?",
+                example1Msg4: "@MaturityWins n\'a pas répondu davantage",
+                example2Title: "Exemple 2: Réseaux Sociaux",
+                example2Msg1: "Imagina être aussi gênant. Tout votre compte est embarrassant 💀",
+                example2Msg2: "J\'espère que vous atteindrez tous vos objectifs dans la vie. Prenez soin de vous!",
+                example2Msg3: "@EdgeLord2024 a en fait fait une pause pour réfléchir et n\'a pas répondu",
+                example3Title: "Exemple 3: Section d\'Avis sur les Produits",
+                example3Msg1: "Quiconque a acheté ceci est un mouton corporatif. Réveillez-vous les gens!",
+                example3Msg2: "Je vous souhaite du bien dans votre voyage.",
+                example3Msg3: "C\'est la chose la plus passive-agressive que j\'ai jamais lue haha",
+                example3Msg4: "@PositivePatty a quitté la conversation",
+                whyWorksTitle: "Pourquoi Ça Marche",
+                reason1Label: "Perturbe le schéma:",
+                reason1Text: "Les trolls s\'attendent à de la colère ou de la défensive. La gentillesse brise leur scénario.",
+                reason2Label: "Déclenche la conscience de soi:",
+                reason2Text: "Votre bonne volonté sincère peut les faire se voir de l\'extérieur de leur bulle.",
+                reason3Label: "Protège votre paix:",
+                reason3Text: "Vous refusez d\'absorber leur négativité ou de gaspiller de l\'énergie en conflit.",
+                reason4Label: "Donne l\'exemple:",
+                reason4Text: "Les autres qui regardent apprennent qu\'il y a une meilleure façon de gérer la toxicité.",
+                ctaTitle: "Rejoignez le Mouvement",
+                ctaText1: "La prochaine fois que vous rencontrez de la haine en ligne, rappelez-vous:",
+                ctaText2: "Ne descendez pas à leur niveau. Arrêtez la chaîne.",
+                ctaButton: "Choisissez la Gentillesse",
+                footerNote: "Cela dit, si vous voyez l\'URL de ce site comme statut/bio de quelqu\'un, préparez-vous à être ignoré si vous commencez à répandre la haine.",
+                footerMade: "Fait avec",
+                footerLocation: "sur Terre",
+                footerTitle: "Arrêtez la Chaîne",
+                footerTagline: "Briser les cycles de négativité, une réponse gentille à la fois."
+            },
+            ru: {
+                title: "Останови Цепь",
+                subtitle: "Разорви цикл ненависти. Выбери доброту вместо конфронтации.",
+                problemTitle: "Проблема",
+                problemText: "Когда кто-то распространяет ненависть ради внимания или забавы, вступление с ними в спор только подливает масла в огонь. Каждый гневный ответ дает им именно то, чего они хотят.",
+                psychologyLabel: "Психология показывает нам лучший путь:",
+                psychologyText: "Лучшая защита от ненависти — это доброта. Она нарушает ожидаемую схему, вызывая самоанализ вместо эскалации.",
+                solutionTitle: "Решение",
+                step1Title: "Шаг 1: Отвечай с искренней добротой",
+                step1Intro: "Используй один из этих ответов:",
+                response1: '"Желаю вам хорошего дня."',
+                response2: '"Желаю вам достичь всех ваших целей в жизни."',
+                response3: '"Желаю вам всего наилучшего."',
+                step2Title: "Шаг 2: Уходи",
+                step2Text1: "Если они продолжают или насмехаются над твоей добротой,",
+                step2Text2: "больше не взаимодействуй",
+                step2Text3: "Ты уже выиграл, отказавшись играть в их игру.",
+                examplesTitle: "Реальные Примеры",
+                example1Title: "Пример 1: Игровое Сообщество",
+                example1Msg1: "Эта игра мусор, а кто её любит — идиот без вкуса лол",
+                example1Msg2: "Желаю вам хорошего дня.",
+                example1Msg3: "ЛОЛ что это за ответ? Ты вообще стараешься?",
+                example1Msg4: "@MaturityWins больше не отвечал",
+                example2Title: "Пример 2: Социальные Сети",
+                example2Msg1: "Представь, быть таким кринжовым. Весь твой аккаунт позорный 💀",
+                example2Msg2: "Желаю вам достичь всех ваших целей в жизни. Берегите себя!",
+                example2Msg3: "@EdgeLord2024 на самом деле задумался и не ответил",
+                example3Title: "Пример 3: Раздел Отзывов о Товарах",
+                example3Msg1: "Кто это купил — корпоративные овцы. Проснитесь, люди!",
+                example3Msg2: "Желаю вам всего наилучшего на вашем пути.",
+                example3Msg3: "Это самая пассивно-агрессивная вещь, которую я когда-либо читал хаха",
+                example3Msg4: "@PositivePatty покинул разговор",
+                whyWorksTitle: "Почему Это Работает",
+                reason1Label: "Нарушает схему:",
+                reason1Text: "Тролли ожидают злости или защиты. Доброта ломает их сценарий.",
+                reason2Label: "Вызывает самосознание:",
+                reason2Text: "Твоя искренняя доброжелательность может заставить их увидеть себя со стороны.",
+                reason3Label: "Защищает твой покой:",
+                reason3Text: "Ты отказываешься поглощать их негатив или тратить энергию на конфликт.",
+                reason4Label: "Подает пример:",
+                reason4Text: "Другие наблюдатели узнают, что есть лучший способ справиться с токсичностью.",
+                ctaTitle: "Присоединяйся к Движению",
+                ctaText1: "В следующий раз, когда столкнешься с ненавистью онлайн, помни:",
+                ctaText2: "Не опускайся до их уровня. Останови цепь.",
+                ctaButton: "Выбери Доброту",
+                footerNote: "Тем не менее, если вы видите URL этого сайта в чьём-то статусе/био, будьте готовы быть проигнорированными, если начнете распространять ненависть.",
+                footerMade: "Сделано с",
+                footerLocation: "на Земле",
+                footerTitle: "Останови Цепь",
+                footerTagline: "Разрывая циклы негатива, по одному доброму ответу за раз."
+            },
+            zh: {
+                title: "停止链条",
+                subtitle: "打破仇恨的循环。选择善意而非对抗。",
+                problemTitle: "问题所在",
+                problemText: "当有人为了引起关注或娱乐而散播仇恨时，与他们互动只会火上浇油。每一个愤怒的回应都给了他们想要的东西。",
+                psychologyLabel: "心理学向我们展示了更好的方式：",
+                psychologyText: "对抗仇恨的最佳防御是善意。它打破了预期的模式，促使自我反思而不是升级。",
+                solutionTitle: "解决方案",
+                step1Title: "步骤1：以真诚的善意回应",
+                step1Intro: "使用以下回应之一：",
+                response1: '"祝你今天过得愉快。"',
+                response2: '"希望你能实现人生中的所有目标。"',
+                response3: '"祝你一切顺利。"',
+                step2Title: "步骤2：离开",
+                step2Text1: "如果他们继续或嘲笑你的善意，",
+                step2Text2: "不要再互动",
+                step2Text3: "拒绝玩他们的游戏，你已经赢了。",
+                examplesTitle: "真实案例",
+                example1Title: "案例1：游戏社区",
+                example1Msg1: "这游戏是垃圾，喜欢它的人都是没品味的白痴哈哈",
+                example1Msg2: "祝你今天过得愉快。",
+                example1Msg3: "哈哈什么回应？你在认真吗？",
+                example1Msg4: "@MaturityWins 没有进一步回应",
+                example2Title: "案例2：社交媒体",
+                example2Msg1: "想象一下这么尴尬。你整个账号都令人尴尬 💀",
+                example2Msg2: "希望你能实现人生中的所有目标。保重！",
+                example2Msg3: "@EdgeLord2024 实际上停下来反思了，没有回应",
+                example3Title: "案例3：产品评论区",
+                example3Msg1: "买这个的人都是企业的绵羊。醒醒吧人们！",
+                example3Msg2: "祝你旅途一切顺利。",
+                example3Msg3: "这是我读过的最被动攻击的东西哈哈",
+                example3Msg4: "@PositivePatty 离开了对话",
+                whyWorksTitle: "为什么有效",
+                reason1Label: "打破模式：",
+                reason1Text: "网络喷子期待愤怒或防御。善意打破了他们的剧本。",
+                reason2Label: "触发自我意识：",
+                reason2Text: "你真诚的善意可以让他们从气泡外看到自己。",
+                reason3Label: "保护你的平静：",
+                reason3Text: "你拒绝吸收他们的负能量或在冲突中浪费精力。",
+                reason4Label: "树立榜样：",
+                reason4Text: "其他旁观者学会了处理负面情绪的更好方法。",
+                ctaTitle: "加入运动",
+                ctaText1: "下次在网上遇到仇恨时，记住：",
+                ctaText2: "不要降低到他们的水平。停止链条。",
+                ctaButton: "选择善意",
+                footerNote: "话虽如此，如果你看到有人的状态/简介中有这个网站的网址，如果你开始散播仇恨，请准备被忽视。",
+                footerMade: "制作于",
+                footerLocation: "地球",
+                footerTitle: "停止链条",
+                footerTagline: "打破负面循环，一次一个善意的回应。"
+            },
+            ar: {
+                title: "أوقف السلسلة",
+                subtitle: "اكسر دائرة الكراهية. اختر اللطف بدلاً من المواجهة.",
+                problemTitle: "المشكلة",
+                problemText: "عندما ينشر شخص ما الكراهية من أجل الاهتمام أو التسلية، فإن التعامل معه لا يؤدي إلا إلى إشعال النار. كل رد غاضب يمنحهم بالضبط ما يريدون.",
+                psychologyLabel: "علم النفس يظهر لنا طريقة أفضل:",
+                psychologyText: "أفضل دفاع ضد الكراهية هو اللطف. إنه يعطل النمط المتوقع، مما يدفع إلى التأمل الذاتي بدلاً من التصعيد.",
+                solutionTitle: "الحل",
+                step1Title: "الخطوة 1: الرد باللطف الحقيقي",
+                step1Intro: "استخدم إحدى هذه الردود:",
+                response1: '"أتمنى لك بقية يوم سعيد."',
+                response2: '"أتمنى أن تحقق جميع أهدافك في الحياة."',
+                response3: '"أتمنى لك كل خير."',
+                step2Title: "الخطوة 2: الابتعاد",
+                step2Text1: "إذا استمروا أو سخروا من لطفك،",
+                step2Text2: "لا تتفاعل أكثر",
+                step2Text3: "لقد فزت بالفعل برفضك لعب لعبتهم.",
+                examplesTitle: "أمثلة حقيقية",
+                example1Title: "مثال 1: مجتمع الألعاب",
+                example1Msg1: "هذه اللعبة قمامة وأي شخص يحبها أحمق بلا ذوق ههه",
+                example1Msg2: "أتمنى لك بقية يوم سعيد.",
+                example1Msg3: "ههه ما نوع الرد هذا؟ هل أنت تحاول حتى؟",
+                example1Msg4: "@MaturityWins لم يرد بعد ذلك",
+                example2Title: "مثال 2: وسائل التواصل الاجتماعي",
+                example2Msg1: "تخيل أن تكون بهذا الإحراج. حسابك بالكامل محرج 💀",
+                example2Msg2: "أتمنى أن تحقق جميع أهدافك في الحياة. اعتن بنفسك!",
+                example2Msg3: "@EdgeLord2024 في الواقع توقف للتفكير ولم يرد",
+                example3Title: "مثال 3: قسم مراجعات المنتجات",
+                example3Msg1: "أي شخص اشترى هذا هو خروف شركات. استيقظوا أيها الناس!",
+                example3Msg2: "أتمنى لك كل خير في رحلتك.",
+                example3Msg3: "هذا أكثر شيء سلبي عدواني قرأته على الإطلاق هاها",
+                example3Msg4: "@PositivePatty غادر المحادثة",
+                whyWorksTitle: "لماذا ينجح هذا",
+                reason1Label: "يعطل النمط:",
+                reason1Text: "المتصيدون يتوقعون الغضب أو الدفاعية. اللطف يكسر سيناريوهم.",
+                reason2Label: "يثير الوعي الذاتي:",
+                reason2Text: "حسن نيتك الحقيقي يمكن أن يجعلهم يرون أنفسهم من خارج فقاعتهم.",
+                reason3Label: "يحمي سلامك:",
+                reason3Text: "ترفض امتصاص سلبيتهم أو إهدار الطاقة في الصراع.",
+                reason4Label: "يضرب مثالاً:",
+                reason4Text: "الآخرون الذين يشاهدون يتعلمون أن هناك طريقة أفضل للتعامل مع السمية.",
+                ctaTitle: "انضم إلى الحركة",
+                ctaText1: "في المرة القادمة التي تواجه فيها الكراهية عبر الإنترنت، تذكر:",
+                ctaText2: "لا تنحدر إلى مستواهم. أوقف السلسلة.",
+                ctaButton: "اختر اللطف",
+                footerNote: "ومع ذلك، إذا رأيت رابط هذا الموقع كحالة/سيرة ذاتية لشخص ما، كن مستعداً لتجاهلك إذا بدأت في نشر الكراهية.",
+                footerMade: "صُنع بـ",
+                footerLocation: "على الأرض",
+                footerTitle: "أوقف السلسلة",
+                footerTagline: "كسر دوائر السلبية، استجابة لطيفة واحدة في كل مرة."
+            },
+            cs: {
+                title: "Zastavte Řetězec",
+                subtitle: "Přerušte cyklus nenávisti. Zvolte laskavost místo konfrontace.",
+                problemTitle: "Problém",
+                problemText: "Když někdo šíří nenávist kvůli pozornosti nebo zábavě, zapojení do sporu s ním jen přilévá olej do ohně. Každá rozzlobená odpověď jim dává přesně to, co chtějí.",
+                psychologyLabel: "Psychologie nám ukazuje lepší cestu:",
+                psychologyText: "Nejlepší obranou proti nenávisti je laskavost. Naruší očekávaný vzorec a vyvolá sebereflexi místo eskalace.",
+                solutionTitle: "Řešení",
+                step1Title: "Krok 1: Odpovězte s upřímnou laskavostí",
+                step1Intro: "Použijte jednu z těchto odpovědí:",
+                response1: '"Přeji vám hezký zbytek dne."',
+                response2: '"Přeji vám, abyste dosáhli všech svých cílů v životě."',
+                response3: '"Přeji vám vše dobré."',
+                step2Title: "Krok 2: Odejděte",
+                step2Text1: "Pokud pokračují nebo se vysmívají vaší laskavosti,",
+                step2Text2: "dále neinteragujte",
+                step2Text3: "Už jste vyhráli tím, že jste odmítli hrát jejich hru.",
+                examplesTitle: "Skutečné Příklady",
+                example1Title: "Příklad 1: Herní Komunita",
+                example1Msg1: "Tahle hra je odpad a kdokoliv ji má rád je idiot bez vkusu lol",
+                example1Msg2: "Přeji vám hezký zbytek dne.",
+                example1Msg3: "LOL co to je za odpověď? Vůbec se snažíš?",
+                example1Msg4: "@MaturityWins již neodpověděl",
+                example2Title: "Příklad 2: Sociální Média",
+                example2Msg1: "Představ si být tak trapný. Celý tvůj účet je trapný 💀",
+                example2Msg2: "Přeji vám, abyste dosáhli všech svých cílů v životě. Opatrujte se!",
+                example2Msg3: "@EdgeLord2024 se skutečně zastavil k přemýšlení a neodpověděl",
+                example3Title: "Příklad 3: Sekce Recenzí Produktů",
+                example3Msg1: "Kdokoliv to koupil je firemní ovce. Vzbuďte se lidé!",
+                example3Msg2: "Přeji vám vše dobré na vaší cestě.",
+                example3Msg3: "To je ta nejpasivně-agresivnější věc, co jsem kdy četl haha",
+                example3Msg4: "@PositivePatty opustil konverzaci",
+                whyWorksTitle: "Proč To Funguje",
+                reason1Label: "Naruší vzorec:",
+                reason1Text: "Trollové očekávají zlost nebo obranu. Laskavost láme jejich scénář.",
+                reason2Label: "Vyvolá sebevědomí:",
+                reason2Text: "Vaše upřímná dobrá vůle jim může pomoci vidět sebe sama zvenčí jejich bubliny.",
+                reason3Label: "Chrání váš klid:",
+                reason3Text: "Odmítáte vstřebávat jejich negativitu nebo plýtvat energií na konflikt.",
+                reason4Label: "Dává příklad:",
+                reason4Text: "Ostatní, kteří sledují, se učí, že existuje lepší způsob, jak zvládat toxicitu.",
+                ctaTitle: "Připojte se k Hnutí",
+                ctaText1: "Příště, když narazíte na nenávist online, pamatujte:",
+                ctaText2: "Neklesejte na jejich úroveň. Zastavte Řetězec.",
+                ctaButton: "Zvolte Laskavost",
+                footerNote: "To řečeno, pokud vidíte URL tohoto webu jako něčí status/bio, buďte připraveni být ignorováni, pokud začnete šířit nenávist.",
+                footerMade: "Vytvořeno s",
+                footerLocation: "na Zemi",
+                footerTitle: "Zastavte Řetězec",
+                footerTagline: "Přerušování cyklů negativity, po jedné laskavé odpovědi."
+            }
+        };
+
+        let currentLang = 'en';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            // Set RTL for Arabic
+            if (lang === 'ar') {
+                document.documentElement.setAttribute('dir', 'rtl');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+            }
+
+            // Update all translatable elements
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+
+            // Save preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Language selector event listener
+        document.getElementById('languageSelector').addEventListener('change', (e) => {
+            setLanguage(e.target.value);
+        });
+
+        // Load saved language preference or detect browser language
+        const savedLang = localStorage.getItem('preferredLanguage');
+        const browserLang = navigator.language.split('-')[0];
+        const initialLang = savedLang || (translations[browserLang] ? browserLang : 'en');
+        
+        document.getElementById('languageSelector').value = initialLang;
+        setLanguage(initialLang);
+
+        // Intersection Observer for scroll reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with reveal class
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
