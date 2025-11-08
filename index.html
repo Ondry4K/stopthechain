@@ -888,8 +888,7 @@
         
         // Load saved theme preference or detect system preference
         const savedTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const initialTheme = savedTheme === 'dark' || (!savedTheme && prefersDark);
+        const initialTheme = savedTheme === 'dark';
         setTheme(initialTheme);
 
         // Intersection Observer for scroll reveal animations
