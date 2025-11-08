@@ -30,10 +30,127 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="/favicon.png" />
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
+        
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #e5e5e5;
+        }
+        
+        body.dark-mode .bg-white {
+            background-color: #1a1a1a;
+        }
+        
+        body.dark-mode .bg-gray-50 {
+            background-color: #2a2a2a;
+        }
+        
+        body.dark-mode .bg-gray-100 {
+            background-color: #2a2a2a;
+        }
+        
+        body.dark-mode .bg-purple-50 {
+            background-color: #2a2240;
+        }
+        
+        body.dark-mode .bg-green-50 {
+            background-color: #1a2a1a;
+        }
+        
+        body.dark-mode .bg-blue-50 {
+            background-color: #1a1a2a;
+        }
+        
+        body.dark-mode .bg-red-100 {
+            background-color: #3a1a1a;
+        }
+        
+        body.dark-mode .bg-green-100 {
+            background-color: #1a3a1a;
+        }
+        
+        body.dark-mode .bg-purple-200 {
+            background-color: #3a2a5a;
+        }
+        
+        body.dark-mode .text-gray-900 {
+            color: #e5e5e5;
+        }
+        
+        body.dark-mode .text-gray-800 {
+            color: #d0d0d0;
+        }
+        
+        body.dark-mode .text-gray-700 {
+            color: #b8b8b8;
+        }
+        
+        body.dark-mode .text-gray-600 {
+            color: #a0a0a0;
+        }
+        
+        body.dark-mode .text-gray-500 {
+            color: #888888;
+        }
+        
+        body.dark-mode .border-gray-200 {
+            border-color: #3a3a3a;
+        }
+        
+        body.dark-mode .border-gray-300 {
+            border-color: #3a3a3a;
+        }
+        
+        body.dark-mode .border-green-200 {
+            border-color: #2a4a2a;
+        }
+        
+        body.dark-mode .border-blue-200 {
+            border-color: #2a2a4a;
+        }
+        
+        body.dark-mode .border-red-500 {
+            border-color: #8a3a3a;
+        }
+        
+        body.dark-mode .border-green-500 {
+            border-color: #3a8a3a;
+        }
+        
+        body.dark-mode .text-green-800 {
+            color: #6ab86a;
+        }
+        
+        body.dark-mode .text-blue-800 {
+            color: #6a6ab8;
+        }
+        
+        body.dark-mode .text-purple-600 {
+            color: #9a7ac8;
+        }
+        
+        body.dark-mode .text-purple-800 {
+            color: #b89ac8;
+        }
+        
+        body.dark-mode .text-gray-300 {
+            color: #b0b0b0;
+        }
+        
+        body.dark-mode .bg-black {
+            background-color: #0a0a0a;
+        }
+        
+        body.dark-mode .choose-kindness-text {
+            color: #ffffff !important;
+        }
+        
         .gradient-text {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
@@ -65,12 +182,26 @@
         [dir="rtl"] {
             direction: rtl;
         }
+        
+        .theme-toggle {
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s ease;
+        }
+        
+        .theme-toggle:hover {
+            background-color: rgba(128, 128, 128, 0.1);
+        }
     </style>
 </head>
 <body class="bg-white text-gray-900">
     <div class="max-w-4xl mx-auto px-6 py-16">
-        <!-- Language Selector -->
-        <div class="flex justify-end mb-4">
+        <!-- Language Selector and Theme Toggle -->
+        <div class="flex justify-end mb-4 gap-3">
+            <div class="theme-toggle" id="themeToggle" title="Toggle dark mode">
+                <i class="fas fa-moon text-xl text-gray-700"></i>
+            </div>
             <div class="relative">
                 <select id="languageSelector" class="appearance-none bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 pr-8 text-sm font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-pointer">
                     <option value="en">🇬🇧 English</option>
@@ -305,7 +436,7 @@
                 </p>
                 <div class="inline-block bg-white text-black px-8 py-3 rounded-lg font-semibold">
                     <i class="fas fa-heart mr-2 text-red-500"></i>
-                    <span data-i18n="ctaButton">Choose Kindness</span>
+                    <span class="choose-kindness-text" data-i18n="ctaButton">Choose Kindness</span>
                 </div>
             </div>
         </section>
@@ -324,7 +455,12 @@
                 <i class="fas fa-link-slash mr-2"></i>
                 <span data-i18n="footerTitle">Stop the Chain</span>
             </p>
-            <p data-i18n="footerTagline">Breaking cycles of negativity, one kind response at a time.</p>
+            <p class="mb-4" data-i18n="footerTagline">Breaking cycles of negativity, one kind response at a time.</p>
+            <div class="flex justify-center gap-4 text-gray-500">
+                <a href="https://github.com/Ondry4K/stopthechain" target="_blank" rel="noopener noreferrer" class="hover:text-purple-600 transition-colors" title="View on GitHub">
+                    <i class="fab fa-github text-2xl"></i>
+                </a>
+            </div>
         </footer>
     </div>
 
@@ -622,7 +758,7 @@
                 reason1Text: "المتصيدون يتوقعون الغضب أو الدفاعية. اللطف يكسر سيناريوهم.",
                 reason2Label: "يثير الوعي الذاتي:",
                 reason2Text: "حسن نيتك الحقيقي يمكن أن يجعلهم يرون أنفسهم من خارج فقاعتهم.",
-                reason3Label: "يحمي سلامك:",
+                reason3Label: "يحماي سلامك:",
                 reason3Text: "ترفض امتصاص سلبيتهم أو إهدار الطاقة في الصراع.",
                 reason4Label: "يضرب مثالاً:",
                 reason4Text: "الآخرون الذين يشاهدون يتعلمون أن هناك طريقة أفضل للتعامل مع السمية.",
@@ -726,6 +862,35 @@
         
         document.getElementById('languageSelector').value = initialLang;
         setLanguage(initialLang);
+
+        // Dark mode toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        function setTheme(isDark) {
+            if (isDark) {
+                document.body.classList.add('dark-mode');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.body.classList.remove('dark-mode');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            const isDark = !document.body.classList.contains('dark-mode');
+            setTheme(isDark);
+        });
+        
+        // Load saved theme preference or detect system preference
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initialTheme = savedTheme === 'dark' || (!savedTheme && prefersDark);
+        setTheme(initialTheme);
 
         // Intersection Observer for scroll reveal animations
         const observerOptions = {
